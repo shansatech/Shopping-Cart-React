@@ -1,5 +1,3 @@
-
-
 const data = {
     products: [
 
@@ -42,7 +40,7 @@ const data = {
         {
             id: '7',
             name: 'Macbook',
-            price: 167000,
+            price: 161000,
             image: 'https://picsum.photos/id/180/2400/1600',
         },
         {
@@ -60,7 +58,7 @@ const data = {
         {
             id: '10',
             name: 'Clock',
-            price: 2000,
+            price: 200,
             image: 'https://picsum.photos/id/175/2896/1944',
         },
 

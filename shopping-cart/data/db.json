@@ -1,0 +1,113 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Camera",
+      "price": 28000,
+      "image": "https://images.unsplash.com/photo-1587467063136-db173523594d"
+    },
+    {
+      "id": "2",
+      "name": "Fruits",
+      "price": 260,
+      "image": "https://images.unsplash.com/photo-1546548970-71785318a17b"
+    },
+    {
+      "id": "3",
+      "name": "Fiction Books",
+      "price": 1499,
+      "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794"
+    },
+    {
+      "id": "4",
+      "name": "Bicycle",
+      "price": 3900,
+      "image": "https://images.unsplash.com/photo-1570865116909-d358c47f1806"
+    },
+    {
+      "id": "5",
+      "name": "Specs",
+      "price": 700,
+      "image": "https://images.unsplash.com/photo-1551706872-893907c44a3e"
+    },
+    {
+      "id": "6",
+      "name": "Coffe mug",
+      "price": 100,
+      "image": "https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb"
+    },
+    {
+      "id": "7",
+      "name": "Macbook",
+      "price": 161000,
+      "image": "https://images.unsplash.com/photo-1527443195645-1133f7f28990"
+    },
+    {
+      "id": "8",
+      "name": "Toys",
+      "price": 1200,
+      "image": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088"
+    },
+    {
+      "id": "9",
+      "name": "Shoes",
+      "price": 1800,
+      "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2"
+    },
+    {
+      "id": "10",
+      "name": "Clock",
+      "price": 200,
+      "image": "https://media.istockphoto.com/photos/white-tulips-and-daylight-savings-time-concept-picture-id1365138685"
+    },
+    
+    {
+      "id": "11",
+      "name": "Skater",
+      "price": 2700,
+      "image": "https://picsum.photos/id/157/6211/4862"
+    },
+    {
+      "id": 12,
+      "name": "Honey",
+      "price": 299,
+      "image": "https://picsum.photos/id/312/3888/2592"
+    },
+    {
+      "name": "I Phone",
+      "price": "64000",
+      "image": "https://images.unsplash.com/photo-1589492477829-5e65395b66cc",
+      "id": "dMSgQfc"
+    },
+    {
+      "name": "Head Phone",
+      "price": "120",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+      "id": "w-VqN21"
+    },
+    {
+      "name": "Piano",
+      "price": "27000",
+      "image": "https://media.istockphoto.com/photos/grand-piano-on-sunset-sky-background-picture-id1340663863",
+      "id": "S0ckUUC"
+    },
+    {
+      "name": "Ring",
+      "price": "54300",
+      "image": "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407",
+      "id": "cj7pMVc"
+    },
+    {
+      "name": "Watch",
+      "price": "655",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+      "id": "fyaqGXO"
+    },
+    {
+      "name": "T-shirt",
+      "price": "499",
+      "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820",
+      "id": "tjT4JE1"
+    }
+  ]
+}

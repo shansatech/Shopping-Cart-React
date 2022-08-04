@@ -6,7 +6,7 @@ export default function Basket(props) {
 
     const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0)
     const taxPrice = itemsPrice * 18 / 100
-    const shippingPrice = itemsPrice >= 50000 ? 0 : itemsPrice >= 30000 ? 20 : itemsPrice >= 20000 ? 30 : 40;
+    const shippingPrice = itemsPrice >= 50000 ? 0 : itemsPrice >= 30000 ? 20 : itemsPrice >= 20000 ? 40 : itemsPrice >= 500 && itemsPrice < 1000 ? 20 : itemsPrice < 500 && itemsPrice > 100 ? 10 : itemsPrice <= 100 ? 5 : 50;
 
     const totalPrice = itemsPrice + taxPrice + shippingPrice;
     return (
@@ -16,7 +16,7 @@ export default function Basket(props) {
             <Grid paddingTop={'30px'} paddingLeft={'20px'}> {cartItems.length === 0 && <Typography color='white' >Your cart is empty</Typography>} </Grid>
             {cartItems.map((item) => (
                 <Grid style={{ display: "flex", justifyContent: 'space-between' }}>
-                    <Typography width={'100px'}>
+                    <Typography width={'100px'} key={item.id}>
                         {item.name}
                     </Typography>
                     <Grid display={'flex'}>
@@ -29,7 +29,7 @@ export default function Basket(props) {
 
                     </Grid>
                     <Grid style={{ display: "flex", justifyContent: 'space-between' }} textwrap={'nowrap'} width={'120px'}>
-                        {item.qty} x <div styles={{ textAlign: 'right' }}>₹ {item.price.toFixed(2)}</div>
+                        {item.qty} x <div styles={{ textAlign: 'right' }}>₹ {parseInt(item.price).toFixed(2)}</div>
                     </Grid>
                 </Grid>
 

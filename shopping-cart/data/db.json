@@ -33,7 +33,7 @@
     {
       "id": "6",
       "name": "Coffe mug",
-      "price": 100,
+      "price": 99,
       "image": "https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb"
     },
     {
@@ -60,7 +60,6 @@
       "price": 200,
       "image": "https://media.istockphoto.com/photos/white-tulips-and-daylight-savings-time-concept-picture-id1365138685"
     },
-    
     {
       "id": "11",
       "name": "Skater",
@@ -68,7 +67,7 @@
       "image": "https://picsum.photos/id/157/6211/4862"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Honey",
       "price": 299,
       "image": "https://picsum.photos/id/312/3888/2592"
@@ -108,6 +107,24 @@
       "price": "499",
       "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820",
       "id": "tjT4JE1"
+    },
+    {
+      "name": "Xbox",
+      "price": "23000",
+      "image": "https://images.unsplash.com/photo-1604586376807-f73185cf5867",
+      "id": "Ja7ARU1"
+    },
+    {
+      "name": "LED TV",
+      "price": "57000",
+      "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575",
+      "id": "JmSO-pH"
+    },
+    {
+      "name": "Alexa",
+      "price": "1700",
+      "image": "https://images.unsplash.com/photo-1615834593791-aa31b118afe0",
+      "id": "go-bw1z"
     }
   ]
 }

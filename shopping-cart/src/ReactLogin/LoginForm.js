@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../components/auth'
 import { Button, Typography, TextField, Grid } from '@mui/material'
 
@@ -9,14 +9,14 @@ const adminUser = {
 };
 
 const LoginForm = () => {
-    const [details, setDetails] = useState({ name: "", email: "", password: "" })
+    const [details, setDetails] = useState({ email: "admin@admin.com", password: "admin@123" })
     const [error, setError] = useState("");
     const navigate = useNavigate()
-    const location = useLocation()
+    // const location = useLocation()
     const auth = useAuth()
     const getEmail = localStorage.getItem('emailData')
     const getPassword = localStorage.getItem('passwordData')
-    const getLogggedIn = localStorage.getItem('isLoggedIn')
+    const getLoggedIn = localStorage.getItem('isLoggedIn')
 
     // const redirectPath = location.state?.path || '/'
 
@@ -24,7 +24,6 @@ const LoginForm = () => {
         e.preventDefault()
         console.log('auth', auth)
         if (details.email === '' || details.password === '') {
-
             setError('Please fill the blank text field')
         }
 
@@ -44,9 +43,7 @@ const LoginForm = () => {
             localStorage.setItem("passwordData", "admin@123")
             localStorage.setItem('isLoggedIn', true)
             // navigate('/', { replace: true })
-            {
-                getEmail && getPassword && getLogggedIn ? navigate('/') : navigate('/signin')
-            }
+            getEmail && getPassword && getLoggedIn ? navigate('/') : navigate('/signin')
         }
     }
 
@@ -67,18 +64,6 @@ const LoginForm = () => {
                     <Typography variant='h4' color='primary' display='flex' justifyContent='center'>Login</Typography>
                     {/* {(error !== '') ? (<div>{error}</div>) : ''} */}
 
-                    <Grid>
-                        <Typography htmlFor="name">Name: </Typography>
-                        <TextField
-                            type="text"
-                            name="name"
-                            id="name"
-                            placeholder="Enter your name"
-                            onChange={(e) => setDetails({ ...details, name: e.target.value })}
-                            value={details.name}
-
-                        />
-                    </Grid>
                     <Grid>
                         <Typography htmlFor="email">Email: </Typography>
                         <TextField

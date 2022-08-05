@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems') || '[]')
+const cartFromLocalStorage = localStorage.getItem('cartItems') ? localStorage.getItem('cartItems') : []
 
 function Home() {
 
@@ -18,12 +18,21 @@ function Home() {
     const { data: products, isPending, error } = useFetch('http://localhost:8000/products')
 
     const [data, setData] = useState();
-    const [cartItems, setCartItems] = useState(cartFromLocalStorage);
-    const navigate = useNavigate()
+    const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []);
+    console.log("------------------>", cartItems)
+    // const navigate = useNavigate()
 
     useEffect(() => {
         setData(products)
-    }, [products])
+    }, [products]);
+
+
+    useEffect(() => {
+        console.log("::::::::::::cartItems:::::::::", cartItems)
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    }, [JSON.stringify(cartItems)])
+    console.log("::::::::::::cartItems:::::::::", cartItems)
+
 
     const onDeleteProps = (itemId) => {
         const filteredData = data.filter(i => i.id !== itemId)
@@ -41,24 +50,30 @@ function Home() {
     }
 
     const onAdd = (product) => {
-        const exist = cartItems.find(x => x.id === product.id)
-        if (exist) {
-            setCartItems(cartItems.map(x => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
-            localStorage.setItem('cartItems', JSON.stringify(cartItems))
-        } else {
-            setCartItems([...cartItems, { ...product, qty: 1 }])
-            localStorage.setItem('cartItems', JSON.stringify(cartItems))
+        if (cartItems) {
+            console.log('************* ', cartItems)
+            const exist = cartItems.find(x => x.id === product.id);
+            // console.log("cartItems", cartItems)
+            if (exist) {
+                setCartItems(cartItems.map(x => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
+                // console.log("::::::::::::cartItems:::::::::", cartItems)
+                localStorage.setItem('cartItems', JSON.stringify(cartItems))
+            } else {
+                setCartItems([...cartItems, { ...product, qty: 1 }])
+                localStorage.setItem('cartItems', JSON.stringify(cartItems))
+            }
         }
+
     }
 
     const onRemove = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
         if (exist.qty === 1) {
             setCartItems(cartItems.filter((x) => x.id !== product.id))
+            // localStorage.setItem('cartItems', JSON.stringify(cartItems))
         } else {
-            setCartItems(
-                cartItems.map((x => x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x))
-            )
+            setCartItems(cartItems.map((x => x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x)))
+            // localStorage.setItem('cartItems', JSON.stringify(cartItems))
         }
     }
     return (

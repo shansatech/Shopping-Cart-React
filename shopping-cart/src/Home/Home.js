@@ -15,12 +15,21 @@ const cartFromLocalStorage = localStorage.getItem('cartItems') ? localStorage.ge
 function Home() {
 
     // const { id } = useParams();
+    const getLoggedIn = localStorage.getItem('isLoggedIn');
     const { data: products, isPending, error } = useFetch('http://localhost:8000/products')
 
     const [data, setData] = useState();
     const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []);
-    console.log("------------------>", cartItems)
-    // const navigate = useNavigate()
+    console.log("------------------>", cartItems);
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (typeof getLoggedIn !== undefined && getLoggedIn !== "true") {
+            navigate('/signin')
+        }
+
+    }, [getLoggedIn])
 
     useEffect(() => {
         setData(products)

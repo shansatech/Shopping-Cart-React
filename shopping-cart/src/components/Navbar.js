@@ -11,6 +11,7 @@ export default function Navbar(props) {
 
     const handleLogout = () => {
         auth.logout()
+        localStorage.setItem('isLoggedIn', false)
         navigate('/signin')
     }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../components/auth'
 import { Button, Typography, TextField, Grid } from '@mui/material'
@@ -8,15 +8,32 @@ const adminUser = {
     password: "admin@123"
 };
 
+
 const LoginForm = () => {
     const [details, setDetails] = useState({ email: "admin@admin.com", password: "admin@123" })
     const [error, setError] = useState("");
+
+    const getLoggedIn = localStorage.getItem('isLoggedIn');
+
     const navigate = useNavigate()
     // const location = useLocation()
+
+    useEffect(() => {
+        if (typeof getLoggedIn !== undefined && getLoggedIn === "true") {
+            navigate('/')
+        }
+        // else {
+
+        //     navigate('/notFound')
+        // }
+    }, [getLoggedIn])
+
+
     const auth = useAuth()
     const getEmail = localStorage.getItem('emailData')
     const getPassword = localStorage.getItem('passwordData')
-    const getLoggedIn = localStorage.getItem('isLoggedIn')
+    // const getLoggedIn = localStorage.getItem('isLoggedIn')
+    // const getKey = localStorage.getItem('key')
 
     // const redirectPath = location.state?.path || '/'
 
@@ -30,6 +47,10 @@ const LoginForm = () => {
         else if (details.email !== adminUser.email || details.password !== adminUser.password) {
             setError("Details does not match! Enter correct details");
         }
+        // else if (getPassword === null) {
+        //     // navigate('/')
+        //     console.log('Hello mike testing 123')
+        // }
 
         else {
 
@@ -38,10 +59,12 @@ const LoginForm = () => {
                 password: details.password
             }
 
-            auth.login(user)
+            auth.login(user);
+
             localStorage.setItem("emailData", "admin@admin.com")
             localStorage.setItem("passwordData", "admin@123")
             localStorage.setItem('isLoggedIn', true)
+
             // navigate('/', { replace: true })
             getEmail && getPassword && getLoggedIn ? navigate('/') : navigate('/signin')
         }
